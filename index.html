@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 1</title>
+  <script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.replace('login.html');
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>♥︎</h2>
+    <nav>
+      <a href="index.html" class="active">Page 1</a>
+      <a href="page2.html">Page 2</a>
+      <a href="page3.html">Page 3</a>
+      <a href="#" class="logout" onclick="sessionStorage.removeItem('loggedIn'); window.location.href='login.html'; return false;">Log out</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Happy Birthday</h1>
+    <p>Happy Birthday to my sweet boy isaac<3</p>
+
+    <div class="pink-frame">
+      <div class="boxes">
+        <div class="box text-box">
+          <h2>To: Isaac</h2>
+          <p>Fill this out..</p>
+        </div>
+
+        <div class="box image-box">
+          <img src="assets/septpt.jpg" alt="Cute birthday couple illustration">
+        </div>
+      </div>
+    </div>
+
+  </main>
+</body>
+</html>

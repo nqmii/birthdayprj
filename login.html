@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+  <div class="login-layout">
+    <div class="login-banner">
+      <img src="assets/test2.gif" alt="Happy birthday">
+    </div>
+
+    <form class="login-card" id="loginForm">
+      <h1>Login</h1>
+      <p>Enter the password to continue.</p>
+
+      <input type="password" id="password" placeholder="Password" autofocus>
+      <p class="login-error" id="error" hidden>Incorrect password. Try again.</p>
+      <button type="submit">Enter</button>
+    </form>
+  </div>
+
+  <script>
+    const PASSWORD = "5201314";
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const entered = document.getElementById('password').value;
+      if (entered === PASSWORD) {
+        sessionStorage.setItem('loggedIn', 'true');
+        window.location.href = 'index.html';
+      } else {
+        document.getElementById('error').hidden = false;
+        document.getElementById('password').value = '';
+        document.getElementById('password').focus();
+      }
+    });
+  </script>
+</body>
+</html>

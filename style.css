@@ -1,0 +1,379 @@
+@font-face {
+  font-family: "Dogica";
+  src: url("assets/fonts/dogica.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Dogica";
+  src: url("assets/fonts/dogicabold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dogica", monospace;
+  font-weight: 400;
+  display: flex;
+  min-height: 100vh;
+  color: #1f2937;
+  background: #f9fafb url("assets/birthday-garden.gif") center / cover fixed no-repeat;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: rgba(31, 41, 55, 0.58);
+  backdrop-filter: blur(4px);
+  color: #f9fafb;
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+
+.sidebar h2 {
+  padding: 0 24px 16px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #374151;
+  margin-bottom: 12px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 12px 24px;
+  color: #d1d5db;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar nav a:hover {
+  background: #374151;
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: #f6cfd7;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.content p {
+  max-width: 600px;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Center the intro paragraph directly under each header */
+.content > p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Login page */
+.login-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f2937 url("assets/login-background.gif") center / cover fixed no-repeat;
+}
+
+.login-layout {
+  width: min(90vw, 780px);
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 4px solid #f4b7c3;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.login-banner {
+  width: 100%;
+}
+
+.login-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(4px);
+  padding: 76px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+}
+
+.login-layout .login-card {
+  width: 600px;
+  max-width: 100%;
+}
+
+.login-card h1 {
+  font-size: 1.75rem;
+  color: #d8babf;
+  margin-bottom: 15px;
+}
+
+.login-card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.login-card input:focus {
+  outline: none;
+  border-color: #d46b80;
+  box-shadow: 0 0 0 3px rgba(212, 107, 128, 0.25);
+}
+
+.login-card button {
+  width: 100%;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: #f9c1cd;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.login-card button:hover {
+  background: #e3b0bb;
+}
+
+.login-error {
+  color: #dc2626 !important;
+  margin-bottom: 16px !important;
+}
+
+/* Logout link in sidebar */
+.sidebar nav a.logout {
+  margin-top: 16px;
+  color: #f9a8b8;
+}
+
+/* Big text box (page 3) */
+.big-text-box {
+  margin-top: 32px;
+  flex: 1;
+  width: 100%;
+  resize: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #1f2937;
+  padding: 24px;
+  border: 3px solid #d46b80;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.big-text-box:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 107, 128, 0.25);
+}
+
+/* Reusable pink border frame */
+.pink-frame {
+  margin-top: 32px;
+  border: 3px solid #ecb2bd;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fdf2f4;
+}
+
+.pink-frame .boxes {
+  margin-top: 0;
+}
+
+/* Boxes on the homepage */
+.boxes {
+  display: flex;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.box {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 260px;
+}
+
+.text-box h2 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.image-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-box img {
+  width: 440px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+
+/* Clickable card grid (page 2) */
+.grid-wrapper {
+  margin-top: 32px;
+  flex: 1;
+  border: 3px solid #f4b7c3;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fdf2f4;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  height: 100%;
+}
+
+.card {
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 32px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  color: #1f2937;
+}
+
+.card img {
+  width: min(100%, 280px);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* Modal / detail box */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 100;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  max-width: 560px;
+  width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.modal h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.modal p {
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.modal-close:hover {
+  color: #1f2937;
+}

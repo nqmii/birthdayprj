@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 2</title>
+  <script>
+    if (sessionStorage.getItem('loggedIn') !== 'true') {
+      window.location.replace('login.html');
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <h2>♥︎</h2>
+    <nav>
+      <a href="index.html">Page 1</a>
+      <a href="page2.html" class="active">Page 2</a>
+      <a href="page3.html">Page 3</a>
+      <a href="#" class="logout" onclick="sessionStorage.removeItem('loggedIn'); window.location.href='login.html'; return false;">Log out</a>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <h1>Gifts</h1>
+    <p>Click any box below to open it.</p>
+
+    <div class="grid-wrapper">
+      <div class="grid">
+      <button class="card" data-title="Robux" data-img="assets/bobux.jpeg"
+        data-text="10k on ur acc !!">
+        <h2>Gift 1</h2>
+        <img src="assets/letterheart.gif" alt="Letter with a heart">
+      </button>
+
+      <button class="card" data-title="Gecko Cursor !!" data-img="assets/cursor-gecko.gif"
+        data-text="New cursor for you of wraith !!">
+        <h2>Gift 2</h2>
+        <img src="assets/letterheart.gif" alt="Letter with a heart">
+      </button>
+
+      <button class="card" data-title="Steam !!" data-img="assets/gift3.avif"
+        data-text="$50 steam giftcard!!">
+        <h2>Gift 3</h2>
+        <img src="assets/letterheart.gif" alt="Letter with a heart">
+      </button>
+
+      <button class="card" data-title="scissors!!" data-img="assets/gift4.webp"
+        data-text="Add kiddietoys on roblox ^-^">
+        <h2>Gift 4</h2>
+        <img src="assets/letterheart.gif" alt="Letter with a heart">
+      </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Detail box (opens when a card is clicked) -->
+  <div class="modal-overlay" id="modal" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <img id="modalImg" src="" alt="">
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalText = document.getElementById('modalText');
+
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        modalImg.src = card.dataset.img;
+        modalImg.alt = card.dataset.title;
+        modalTitle.textContent = card.dataset.title;
+        modalText.textContent = card.dataset.text;
+        modal.hidden = false;
+      });
+    });
+
+    function closeModal() {
+      modal.hidden = true;
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
